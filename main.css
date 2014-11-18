@@ -1,0 +1,45 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body, 
+div {
+	padding: 0;
+	margin: 0;
+}
+
+header, 
+.controls {
+	text-align: center;
+}
+
+.controls {
+	margin-bottom: 20px;
+}
+	
+section {
+	width: 100%;
+	
+}
+
+#eas {
+	text-align: center;
+	/* border-left: 1px solid black;
+	border-bottom: 1px solid black; */
+	margin: 10px auto;
+	
+}
+
+.row {
+	height: 15px;
+}
+
+.box {
+	height: 15px;
+	width: 15px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	display: inline-block;
+}
