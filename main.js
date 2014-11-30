@@ -1,30 +1,44 @@
-var etch = $('#eas'),
-		gridCol = 64,
-		gridRow = 64;
+var etch = $('#eas-screen'),		
+		width = 64;
 
 
-// Create Grid
-for (var i = 0; i < gridCol; i += 1) {
-	var row = $('<div class="row" id="' + i + '"></div>');
-	for (var ib = 0; ib < gridRow; ib += 1) {
-		$('<div class="box"></div>').appendTo(row);
-		console.log("inner" + ib);
+ 
+// Grid function
+function grid() {
+
+	// Empty grid
+	etch.html("");
+	
+	// Create grid
+	var width = $('#new-width').val();
+	var boxSize = 480 / width;
+	
+	for (var i = 0; i < width; i += 1) {
+		var row = $('<div class="row" id="' + i + '"></div>').css('height', boxSize + "px");
+		for (var ib = 0; ib < width; ib += 1) {
+			$('<span class="box"></span>').css('width', boxSize + "px").css('height', boxSize + "px").appendTo(row);
+		}
+		etch.append(row);
 	}
-	//row += $('</div>');
-	console.log(i);
-	$('#eas').append(row);
-	//row = $('<div>');
-}
+	
+	// Color box when mouse hovers
+	$('.box').on(' mouseenter', function() {
+		$(this).css('backgroundColor', 'black');
+	});
+};
 
-// Set eas size
-//etch.css('width', 15.03 * gridRow + "px"); 
+// Set new width on click
+$('#set-width').on('click', grid);
 
-// Color box when mouse hovers
-$('.box').on(' mouseenter', function() {
-	$(this).css('backgroundColor', 'black');
+// Set new width with enter
+$('#new-width').on('keydown', function(e) {
+	if (e.which == 13) 
+		grid();	
 });
 
 // Reset grid
 $('#reset').on('click', function() {
 	$('.box').css('backgroundColor', '');
 });
+
+$(document).ready(grid());
