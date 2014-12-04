@@ -13,16 +13,40 @@ html {
 	padding: 0;
 }
 
-
-body, 
-div {
-	padding: 0;
-	margin: 0;
+body {
+	display: flex;
+	justify-content: space-around;
+	background: linear-gradient(#88F0F7, #00EEFF);
+	padding-right: 15px;
 }
 
+
+
+/* Controls
+********************************************/
 header, 
 .controls {
 	text-align: center;
+}
+
+header {
+	margin: 10px auto;
+}
+
+h1, 
+label {
+	color: white;
+	text-shadow: 0 0 5px #333;
+}
+
+h1 {
+	margin: 175px 0 20px;
+	font-size: 44px;
+}
+
+label {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
 }
 
 .controls {
@@ -33,13 +57,32 @@ header,
 	border-top: 0;
 	border-left: 0;
 	border-right: 0;
-	width: 30px;
+	border-bottom: 1px solid black;
+	width: 40px;
+	font-size: 18px;
+	background: rgba(0,0,0,0);
+	text-align: center;
+	outline: none;
+	margin-bottom: 10px;
 }
 
-section {
-	width: 100%;
-	
+button {
+	color: white;
+	padding: 10px;
+	border-radius: 15px;
+	border: none;
+	background: #F06060;
+	margin: 5px 15px;
+	transition: background .5s;
 }
+
+button:hover {
+	background: red;
+}
+
+
+/* Etch-A-Sketch board
+********************************************/
 
 #eas {
 	background: red;
@@ -55,7 +98,6 @@ section {
 	font-family: 'Qwigley', cursive;
 	font-size: 44px;
 	padding: 5px 0;
-	margin: 0;
 }
 
 #eas p span {
@@ -121,6 +163,5 @@ section {
 }
 
 @-webkit-keyframes erase {
-	50%	  { transform: translateY(15px) }
-	
+	50%	  { transform: translateY(15px) }	
 }
